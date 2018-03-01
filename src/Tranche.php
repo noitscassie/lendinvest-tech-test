@@ -13,4 +13,8 @@ class Tranche {
   function getCurrentlyInvested() {
     return $this->currentlyInvested;
   }
+
+  function getRemainingAvailable() {
+    return $this->maximumAvailable - $this->currentlyInvested;
+  }
 }
