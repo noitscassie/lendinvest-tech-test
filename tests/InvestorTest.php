@@ -18,6 +18,9 @@ class InvestorTest extends TestCase
   {
     $warren = new Investor(1000);
     $tranche = $this->createMock(Tranche::class);
+    $tranche->expects($this->once())
+            ->method('addFunds')
+            ->with($this->equalTo(500));
     $warren->invest(500, $tranche);
     $this->assertSame(500, $warren->getCash());
   }
