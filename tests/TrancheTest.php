@@ -19,4 +19,9 @@ class TrancheTest extends TestCase
   {
     $this->assertSame(0, $this->tranche->getCurrentlyInvested());
   }
+
+  public function testGetRemainingAvailable()
+  {
+    $this->assertSame(1000, $this->tranche->getRemainingAvailable());
+  }
 }
