@@ -19,7 +19,7 @@ class InvestorTest extends TestCase
 
   public function testInvest()
   {
-    $tranche = $this->createMock(Tranche::class);
+    $tranche = $this->createMock(FakeTranche::class);
     $tranche->expects($this->once())
             ->method('addFunds')
             ->with($this->equalTo(500));
