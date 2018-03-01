@@ -7,21 +7,23 @@ include(dirname(__FILE__)."/../src/Tranche.php");
 
 class InvestorTest extends TestCase
 {
+  public function setUp() {
+    $this->warren = new Investor(1000);
+  }
+
   public function testCash()
   {
-    $warren = new Investor(1000);
-    $cash = $warren->getCash();
+    $cash = $this->warren->getCash();
     $this->assertSame(1000, $cash);
   }
 
   public function testInvest()
   {
-    $warren = new Investor(1000);
     $tranche = $this->createMock(Tranche::class);
     $tranche->expects($this->once())
             ->method('addFunds')
             ->with($this->equalTo(500));
-    $warren->invest(500, $tranche);
-    $this->assertSame(500, $warren->getCash());
+    $this->warren->invest(500, $tranche);
+    $this->assertSame(500, $this->warren->getCash());
   }
 }
