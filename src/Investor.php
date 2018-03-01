@@ -10,4 +10,12 @@ class Investor {
   function getCash() {
     return $this->cash;
   }
+
+  function invest($amount, $tranche) {
+    $this->decreaseCash($amount);
+  }
+
+  private function decreaseCash($amount) {
+    $this->cash = $this->cash - $amount;
+  }
 }
