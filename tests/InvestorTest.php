@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 include(dirname(__FILE__)."/../src/Investor.php");
-include(dirname(__FILE__)."/../src/Tranche.php");
 
 class InvestorTest extends TestCase
 {
@@ -19,11 +18,13 @@ class InvestorTest extends TestCase
 
   public function testInvest()
   {
-    $tranche = $this->createMock(FakeTranche::class);
-    $tranche->expects($this->once())
+    $fakeTranche = $this->getMockBuilder(Tranche::class)
+                        ->setMethods(['addFunds'])
+                        ->getMock();
+    $fakeTranche->expects($this->once())
             ->method('addFunds')
             ->with($this->equalTo(500));
-    $this->warren->invest(500, $tranche);
+    $this->warren->invest(500, $fakeTranche);
     $this->assertSame(500, $this->warren->getCash());
   }
 }
