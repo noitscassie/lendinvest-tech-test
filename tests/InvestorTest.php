@@ -19,11 +19,12 @@ class InvestorTest extends TestCase
   public function testInvest()
   {
     $fakeTranche = $this->getMockBuilder(Tranche::class)
+                        ->disableOriginalConstructor()
                         ->setMethods(['addFunds'])
                         ->getMock();
     $fakeTranche->expects($this->once())
-            ->method('addFunds')
-            ->with($this->equalTo(500));
+                ->method('addFunds')
+                ->with($this->equalTo(500));
     $this->assertSame("ok", $this->warren->invest(500, $fakeTranche));
     $this->assertSame(500, $this->warren->getCash());
   }
