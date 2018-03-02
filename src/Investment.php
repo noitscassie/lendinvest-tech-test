@@ -33,7 +33,14 @@ class Investment {
   function calculateDaysInvested() {
     $endDate = strtotime("2015-10-31");
     $duration = $endDate - $this->startDate;
-    $daysInvested = floor($duration/60/60/24);
+    $daysInvested = floor($duration/60/60/24) + 1;
     return $daysInvested;
+  }
+
+  function calculatePercentageOfMonthInvested() {
+    $daysInvested = $this->calculateDaysInvested();
+    $daysInMonth = 31;
+    $percentageOfMonthInvested = $daysInvested / $daysInMonth;
+    return $percentageOfMonthInvested;
   }
 }
