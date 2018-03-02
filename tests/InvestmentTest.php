@@ -10,7 +10,7 @@ class InvestmentTest extends TestCase
     $fakeInvestor = $this->getMockBuilder(Investor::class)
                          ->disableOriginalConstructor()
                          ->getMock();
-    $this->investment = new Investment("2015-10-03", 6, $fakeInvestor);
+    $this->investment = new Investment("2015-10-03", 6, $fakeInvestor, 1000);
   }
 
   public function testGetStartDate() {
@@ -23,5 +23,9 @@ class InvestmentTest extends TestCase
 
   public function testGetInvestor() {
     $this->assertInstanceOf(Investor::class, $this->investment->getInvestor());
+  }
+
+  public function testGetAmount() {
+    $this->assertEquals(1000, $this->investment->amount);
   }
 }
