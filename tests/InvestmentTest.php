@@ -28,4 +28,8 @@ class InvestmentTest extends TestCase
   public function testGetAmount() {
     $this->assertEquals(1000, $this->investment->amount);
   }
+
+  public function testCalculateDaysInvested() {
+    $this->assertEquals(28, $this->investment->calculateDaysInvested());
+  }
 }
