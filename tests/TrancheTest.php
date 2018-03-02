@@ -7,7 +7,7 @@ include(dirname(__FILE__)."/../src/Tranche.php");
 class TrancheTest extends TestCase
 {
   public function setUp() {
-    $this->tranche = new Tranche();
+    $this->tranche = new Tranche(6);
   }
 
   public function testMaximumAvailable()
@@ -23,6 +23,11 @@ class TrancheTest extends TestCase
   public function testGetRemainingAvailable()
   {
     $this->assertSame(1000, $this->tranche->getRemainingAvailable());
+  }
+
+  public function testGetInterestRate()
+  {
+    $this->assertSame(6, $this->tranche->testGetInterestRate());
   }
 
   public function testAddFunds()
