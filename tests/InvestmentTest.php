@@ -30,6 +30,10 @@ class InvestmentTest extends TestCase
   }
 
   public function testCalculateDaysInvested() {
-    $this->assertEquals(28, $this->investment->calculateDaysInvested());
+    $this->assertEquals(29, $this->investment->calculateDaysInvested());
+  }
+
+  public function testCalculatePercentageOfMonthInvested() {
+    $this->assertEquals(0.935483870968, $this->investment->calculatePercentageOfMonthInvested());
   }
 }
