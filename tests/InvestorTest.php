@@ -24,7 +24,7 @@ class InvestorTest extends TestCase
     $fakeTranche->expects($this->once())
             ->method('addFunds')
             ->with($this->equalTo(500));
-    $this->warren->invest(500, $fakeTranche);
+    $this->assertSame("ok", $this->warren->invest(500, $fakeTranche));
     $this->assertSame(500, $this->warren->getCash());
   }
 }
