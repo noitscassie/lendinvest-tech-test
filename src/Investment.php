@@ -8,7 +8,7 @@ class Investment {
   var $amount;
 
   function __construct($startDate, $interestRate, $investor, $amount) {
-    $this->startDate = date_create($startDate);
+    $this->startDate = strtotime($startDate);
     $this->interestRate = $interestRate;
     $this->investor = $investor;
     $this->amount = $amount;

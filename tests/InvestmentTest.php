@@ -14,7 +14,7 @@ class InvestmentTest extends TestCase
   }
 
   public function testGetStartDate() {
-    $this->assertEquals(date_create("2015-10-03"), $this->investment->getStartDate());
+    $this->assertEquals(strtotime("2015-10-03"), $this->investment->getStartDate());
   }
 
   public function testGetInterestRate() {
