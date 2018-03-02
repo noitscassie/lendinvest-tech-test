@@ -40,8 +40,8 @@ class InvestmentTest extends TestCase
   public function testCalculateFullMonthInterest() {
     $this->assertEquals(30, $this->investment->calculateFullMonthInterest());
   }
-  //
-  // public function testCalculateInterest() {
-  //   $this->
-  // }
+
+  public function testCalculateInterest() {
+    $this->assertEquals(28.06, $this->investment->calculateInterest());
+  }
 }
