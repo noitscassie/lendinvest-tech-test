@@ -14,6 +14,7 @@ class Investor {
   function invest($amount, $tranche) {
     $this->decreaseCash($amount);
     $tranche->addFunds($amount);
+    return "ok";
   }
 
   private function decreaseCash($amount) {
