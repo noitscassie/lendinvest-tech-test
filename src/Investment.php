@@ -44,8 +44,8 @@ class Investment {
     return $percentageOfMonthInvested;
   }
 
-  function getCalculateMonthInterest() {
-    $interest = $this->amount * ($this->interestRate / 100);
-    return $interest;
+  function calculateFullMonthInterest() {
+    $fullMonthInterest = $this->amount * ($this->interestRate / 100);
+    return $fullMonthInterest;
   }
 }

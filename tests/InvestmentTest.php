@@ -10,7 +10,7 @@ class InvestmentTest extends TestCase
     $fakeInvestor = $this->getMockBuilder(Investor::class)
                          ->disableOriginalConstructor()
                          ->getMock();
-    $this->investment = new Investment("2015-10-03", 6, $fakeInvestor, 1000);
+    $this->investment = new Investment("2015-10-03", 3, $fakeInvestor, 1000);
   }
 
   public function testGetStartDate() {
@@ -18,7 +18,7 @@ class InvestmentTest extends TestCase
   }
 
   public function testGetInterestRate() {
-    $this->assertEquals(6, $this->investment->getInterestRate());
+    $this->assertEquals(3, $this->investment->getInterestRate());
   }
 
   public function testGetInvestor() {
@@ -38,6 +38,10 @@ class InvestmentTest extends TestCase
   }
 
   public function testCalculateFullMonthInterest() {
-    $this->assertEquals(60, $this->investment->getFullMonthInterest());
+    $this->assertEquals(30, $this->investment->calculateFullMonthInterest());
   }
+  //
+  // public function testCalculateInterest() {
+  //   $this->
+  // }
 }
