@@ -7,7 +7,11 @@ class Tranche {
 
   function addFunds($amount) {
     $newAmount = $this->currentlyInvested + $amount;
-    $this->setCurrentlyInvested($newAmount);
+    if ($newAmount <= $this->maximumAvailable) {
+      $this->setCurrentlyInvested($newAmount);
+    } else {
+      throw new Exception("exception");
+    }
   }
 
   function getMaximumAvailable() {
