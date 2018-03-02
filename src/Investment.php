@@ -29,4 +29,11 @@ class Investment {
   function getAmount() {
     return $this->getAmount;
   }
+
+  function calculateDaysInvested() {
+    $endDate = strtotime("2015-10-31");
+    $duration = $endDate - $this->startDate;
+    $daysInvested = floor($duration/60/60/24);
+    return $daysInvested;
+  }
 }
