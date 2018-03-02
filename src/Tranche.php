@@ -4,14 +4,10 @@ declare(strict_types=1);
 class Tranche {
   var $maximumAvailable = 1000;
   var $currentlyInvested = 0;
+  var $interestRate;
 
-  function addFunds($amount) {
-    $newAmount = $this->currentlyInvested + $amount;
-    if ($newAmount <= $this->maximumAvailable) {
-      $this->setCurrentlyInvested($newAmount);
-    } else {
-      throw new Exception("exception");
-    }
+  function __construct($interestRate) {
+    $this->interestRate = $interestRate;
   }
 
   function getMaximumAvailable() {
@@ -28,5 +24,18 @@ class Tranche {
 
   function getRemainingAvailable() {
     return $this->maximumAvailable - $this->currentlyInvested;
+  }
+
+  function testGetInterestRate() {
+    return $this->interestRate;
+  }
+
+  function addFunds($amount) {
+    $newAmount = $this->currentlyInvested + $amount;
+    if ($newAmount <= $this->maximumAvailable) {
+      $this->setCurrentlyInvested($newAmount);
+    } else {
+      throw new Exception("exception");
+    }
   }
 }
