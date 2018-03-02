@@ -43,4 +43,9 @@ class Investment {
     $percentageOfMonthInvested = $daysInvested / $daysInMonth;
     return $percentageOfMonthInvested;
   }
+
+  function getCalculateMonthInterest() {
+    $interest = $this->amount * ($this->interestRate / 100);
+    return $interest;
+  }
 }
