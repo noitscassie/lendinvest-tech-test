@@ -21,10 +21,6 @@ class InvestmentTest extends TestCase
     $this->assertEquals(3, $this->investment->getInterestRate());
   }
 
-  public function testGetInvestor() {
-    $this->assertInstanceOf(Investor::class, $this->investment->getInvestor());
-  }
-
   public function testGetAmount() {
     $this->assertEquals(1000, $this->investment->amount);
   }
