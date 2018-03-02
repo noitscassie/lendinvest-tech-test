@@ -29,5 +29,7 @@ class TrancheTest extends TestCase
   {
     $this->tranche->addFunds(1000);
     $this->assertSame(1000, $this->tranche->getCurrentlyInvested());
+    $this->expectExceptionMessage("exception");
+    $this->tranche->addFunds(1);
   }
 }
