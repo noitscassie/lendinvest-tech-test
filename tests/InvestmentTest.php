@@ -36,4 +36,8 @@ class InvestmentTest extends TestCase
   public function testCalculatePercentageOfMonthInvested() {
     $this->assertEquals(0.935483870968, $this->investment->calculatePercentageOfMonthInvested());
   }
+
+  public function testCalculateFullMonthInterest() {
+    $this->assertEquals(60, $this->investment->getFullMonthInterest());
+  }
 }
