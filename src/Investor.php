@@ -9,7 +9,7 @@ class Investor {
     $this->cash = $cash;
   }
 
-  function getCash() {
+  public function getCash() {
     return $this->cash;
   }
 
@@ -17,11 +17,15 @@ class Investor {
     return $this->investment;
   }
 
-  function invest($amount, $tranche, $date) {
+  public function invest($amount, $tranche, $date) {
     $tranche->addFunds($amount);
     $investment = $this->createInvestment($date, $tranche->getInterestRate(), $amount);
     $this->decreaseCash($amount);
     return "ok";
+  }
+
+  public function calculateInterest() {
+    return $this->investment->calculateInterest();
   }
 
   private function decreaseCash($amount) {
