@@ -10,32 +10,20 @@ class Tranche {
     $this->interestRate = $interestRate;
   }
 
-  function getMaximumAvailable() {
-    return $this->maximumAvailable;
-  }
-
-  function getCurrentlyInvested() {
-    return $this->currentlyInvested;
-  }
-
-  function setCurrentlyInvested($amount) {
-    $this->currentlyInvested = $amount;
-  }
-
-  function getRemainingAvailable() {
+  public function getRemainingAvailable() {
     return $this->maximumAvailable - $this->currentlyInvested;
   }
 
-  function getInterestRate() {
-    return $this->interestRate;
-  }
-
-  function addFunds($amount) {
+  public function addFunds($amount) {
     $newAmount = $this->currentlyInvested + $amount;
     if ($newAmount <= $this->maximumAvailable) {
       $this->setCurrentlyInvested($newAmount);
     } else {
       throw new Exception("exception");
     }
+  }
+
+  private function setCurrentlyInvested($amount) {
+    $this->currentlyInvested = $amount;
   }
 }
