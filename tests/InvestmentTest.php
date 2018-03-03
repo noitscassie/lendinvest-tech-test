@@ -10,16 +10,20 @@ class InvestmentTest extends TestCase
     $this->investment = new Investment("2015-10-03", 3, 1000);
   }
 
-  public function testGetStartDate() {
-    $this->assertEquals(strtotime("2015-10-03"), $this->investment->getStartDate());
+  public function testStartDateProperty() {
+    $startDatePropertyExists = property_exists($this->investment, "startDate");
+    $this->assertSame(true, $startDatePropertyExists);
+    $this->assertEquals(strtotime("2015-10-03"), $this->investment->startDate);
   }
 
-  public function testGetInterestRate() {
-    $this->assertEquals(3, $this->investment->getInterestRate());
+  public function testInterestRatePropertyExists() {
+    $interestRatePropertyExists = property_exists($this->investment, "interestRate");
+    $this->assertEquals(true, $interestRatePropertyExists);
   }
 
-  public function testGetAmount() {
-    $this->assertEquals(1000, $this->investment->amount);
+  public function testAmountPropertyExists() {
+    $amountPropertyExists = property_exists($this->investment, "amount");
+    $this->assertEquals(true, $amountPropertyExists);
   }
 
   public function testCalculateDaysInvested() {
