@@ -12,18 +12,6 @@ class Investment {
     $this->amount = $amount;
   }
 
-  function getStartDate() {
-    return $this->startDate;
-  }
-
-  function getInterestRate() {
-    return $this->interestRate;
-  }
-
-  function getAmount() {
-    return $this->getAmount;
-  }
-
   function calculateDaysInvested() {
     $endDate = strtotime("2015-10-31");
     $duration = $endDate - $this->startDate;
