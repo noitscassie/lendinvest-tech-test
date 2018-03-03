@@ -27,7 +27,7 @@ class TrancheTest extends TestCase
 
   public function testGetInterestRate()
   {
-    $this->assertSame(6, $this->tranche->testGetInterestRate());
+    $this->assertSame(6, $this->tranche->getInterestRate());
   }
 
   public function testAddFunds()

@@ -26,7 +26,7 @@ class Tranche {
     return $this->maximumAvailable - $this->currentlyInvested;
   }
 
-  function testGetInterestRate() {
+  function getInterestRate() {
     return $this->interestRate;
   }
 
