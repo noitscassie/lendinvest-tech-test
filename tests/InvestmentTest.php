@@ -7,10 +7,7 @@ include(dirname(__FILE__)."/../src/Investment.php");
 class InvestmentTest extends TestCase
 {
   public function setUp() {
-    $fakeInvestor = $this->getMockBuilder(Investor::class)
-                         ->disableOriginalConstructor()
-                         ->getMock();
-    $this->investment = new Investment("2015-10-03", 3, $fakeInvestor, 1000);
+    $this->investment = new Investment("2015-10-03", 3, 1000);
   }
 
   public function testGetStartDate() {
@@ -19,10 +16,6 @@ class InvestmentTest extends TestCase
 
   public function testGetInterestRate() {
     $this->assertEquals(3, $this->investment->getInterestRate());
-  }
-
-  public function testGetInvestor() {
-    $this->assertInstanceOf(Investor::class, $this->investment->getInvestor());
   }
 
   public function testGetAmount() {
