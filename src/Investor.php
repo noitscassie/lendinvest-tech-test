@@ -4,7 +4,7 @@ declare(strict_types=1);
 class Investor {
   var $cash;
   var $investment;
-  
+
   function __construct($cash) {
     $this->cash = $cash;
   }
@@ -18,8 +18,8 @@ class Investor {
   }
 
   function invest($amount, $tranche) {
-    $this->decreaseCash($amount);
     $tranche->addFunds($amount);
+    $this->decreaseCash($amount);
     return "ok";
   }
 
