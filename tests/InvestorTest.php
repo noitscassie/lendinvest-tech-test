@@ -16,6 +16,11 @@ class InvestorTest extends TestCase
     $this->assertSame(1000, $cash);
   }
 
+  public function testGetInvestment() {
+    $investment = $this->warren->getInvestment();
+    $this->assertSame(null, $investment);
+  }
+
   public function testInvest()
   {
     $fakeTranche = $this->getMockBuilder(Tranche::class)
