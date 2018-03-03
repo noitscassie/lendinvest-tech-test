@@ -9,10 +9,6 @@ class Investor {
     $this->cash = $cash;
   }
 
-  public function getCash() {
-    return $this->cash;
-  }
-
   public function getInvestment() {
     return $this->investment;
   }
