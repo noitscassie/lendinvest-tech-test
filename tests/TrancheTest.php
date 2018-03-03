@@ -10,14 +10,16 @@ class TrancheTest extends TestCase
     $this->tranche = new Tranche(6);
   }
 
-  public function testMaximumAvailable()
+  public function testMaximumAvailablePropertyExists()
   {
-    $this->assertSame(1000, $this->tranche->getMaximumAvailable());
+    $maximumAvailablePropertyExists = property_exists($this->tranche, "maximumAvailable");
+    $this->assertSame(true, $maximumAvailablePropertyExists);
   }
 
-  public function testCurrentlyInvested()
+  public function testCurrentlyInvestedPropertyExists()
   {
-    $this->assertSame(0, $this->tranche->getCurrentlyInvested());
+    $currentlyInvestedPropertyExists = property_exists($this->tranche, "currentlyInvested");
+    $this->assertSame(true, $currentlyInvestedPropertyExists);
   }
 
   public function testGetRemainingAvailable()
@@ -25,15 +27,15 @@ class TrancheTest extends TestCase
     $this->assertSame(1000, $this->tranche->getRemainingAvailable());
   }
 
-  public function testGetInterestRate()
+  public function testInterestRatePropertyExists()
   {
-    $this->assertSame(6, $this->tranche->getInterestRate());
-  }
+    $interestRatePropertyExists = property_exists($this->tranche, "interestRate");
+    $this->assertSame(true, $interestRatePropertyExists);  }
 
   public function testAddFunds()
   {
     $this->tranche->addFunds(1000);
-    $this->assertSame(1000, $this->tranche->getCurrentlyInvested());
+    $this->assertSame(1000, $this->tranche->currentlyInvested);
     $this->expectExceptionMessage("exception");
     $this->tranche->addFunds(1);
   }
