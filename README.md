@@ -1,6 +1,6 @@
 # LendInvest Tech Test
 
-[Introduction](#introduction) | [Quickstart](#quickstart) | [Approach](#approach) | [Challenges](#challenges) | [Miscellaneous Notes](#miscellaneous-notes)
+[Introduction](#introduction) | [Quickstart](#quickstart) | [Approach](#approach) | [Challenges](#challenges) | [Limitations](#limitations)
 
 ## Introduction
 
@@ -107,3 +107,9 @@ Given that I had never written any PHP before this project, the next step was to
 
 
 ## Limitations
+
+
+
+
+-----------
+If you have any suggestions or feedback on either this project or its documentation, please [open an issue](https://github.com/peterwdj/lendinvest-tech-test/issues/new).
