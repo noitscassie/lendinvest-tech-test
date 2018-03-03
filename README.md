@@ -69,10 +69,10 @@ php > $trancheB = new Tranche(6);
 N.B. to see the  return values printed out, make the entire call as an argument in PHP's `print_r()` [method](http://php.net/manual/en/function.print-r.php).
 ```
 
-php > $investor1->invest(1000, $trancheA, "2015-10-03");       ## returns "ok"
-php > $investor2->invest(1000, $trancheA, "2015-10-04");       ## raises an Exception as the tranche is full
-php > $investor3->invest(500, $trancheB, "2015-10-10");        ## returns "ok"
-php > $investor4->invest(1100, $trancheB, "2015-10-25");       ## raises an Exception as the tranche is full
+php > $investor1->invest(1000, $trancheA, "2015-10-03");                     ## returns "ok"
+php > $investor2->invest(1000, $trancheA, "2015-10-04");                     ## raises an Exception as the tranche is full
+php > $investor3->invest(500, $trancheB, "2015-10-10");                      ## returns "ok"
+php > $investor4->invest(1100, $trancheB, "2015-10-25");                     ## raises an Exception as the tranche is full
 
 
 // the invest method takes three arguments:
@@ -83,8 +83,8 @@ php > $investor4->invest(1100, $trancheB, "2015-10-25");       ## raises an Exce
 Returning the accrued interest:   
 (See earlier note on using `print_r()` to return values.)
 ```
-php > $investor1->calculateInterest();                         ## returns 28.06
-php > $investor3->calculateInterest();                         ## returns 21.29
+php > $investor1->calculateInterest();                                       ## returns 28.06
+php > $investor3->calculateInterest();                                       ## returns 21.29
 ```
 
 Tests are run using PHPUnit:
@@ -92,11 +92,14 @@ Tests are run using PHPUnit:
 ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests                   ## runs the entire test suite
 ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/testFile.php      ## runs an individual test
 ```
-Each can be run with the `--testdox` option preceding the files passed in to display the test results in a prettier, more human-readable format. 
+Each can be run with the `--testdox` option preceding the files passed in to display the test results in a prettier, more human-readable format.
 
 
 ## Approach
 
+The first step in this challenge was to establish the core of what was necessary to satisfy the conditions of the specification. I took the decision, for example, not to create a Loan class as, whilst it was mentioned in the set up for the project, it was not actually necessary for any of the logic of the challenge. Please see [Limitations](#limitations) for a further discussion of some of the design decisions in this application, and their implications. Throughout this process, I made use of [CRC cards](https://en.wikipedia.org/wiki/Class-responsibility-collaboration_card) in order to get a sense of how the different parts of the application would communicate, but also to ensure that my design would be able to satisfy the requirements of the challenge.
+
+Given that I had never written any PHP before this project, the next step was to learn how to write PHP. In the past when learning a new language or framework, I have often followed a tutorial, changing as necessary to meet my own requirements. With this challenge, however, I took a new approach. Instead of attempting to 'learn PHP', I instead took the decision to use my test-driven approach to development to also drive my learning of the language; I would learn how to create a class, call a method, or build a mock as and when I needed to. This allowed me to keep a tight focus on what needed to be built, and the tools I would need from the PHP toolbox to do so. I found this approach to be of a lot more practical use in learning a new language than following a tutorial.
 
 
 ## Challenges
