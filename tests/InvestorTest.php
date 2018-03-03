@@ -10,16 +10,16 @@ class InvestorTest extends TestCase
     $this->warren = new Investor(1000);
     $this->fakeTranche = $this->getMockBuilder(Tranche::class)
                         ->disableOriginalConstructor()
-                        ->setMethods(['addFunds', 'getInterestRate'])
+                        ->setMethods(["addFunds", "getInterestRate"])
                         ->getMock();
-    $this->fakeTranche->method('getInterestRate')
+    $this->fakeTranche->method("getInterestRate")
     ->willReturn(3);
   }
 
-  public function testCash()
+  public function testCashPropertyExists()
   {
-    $cash = $this->warren->getCash();
-    $this->assertSame(1000, $cash);
+    $cashPropertyExists = property_exists($this->warren, "cash");
+    $this->assertSame(true, $cashPropertyExists);
   }
 
   public function testGetInvestment() {
@@ -33,7 +33,7 @@ class InvestorTest extends TestCase
                 ->method('addFunds')
                 ->with($this->equalTo(500));
     $this->assertSame("ok", $this->warren->invest(500, $this->fakeTranche, "2015-10-03"));
-    $this->assertSame(500, $this->warren->getCash());
+    $this->assertSame(500, $this->warren->cash);
     $this->assertInstanceOf(Investment::class, $this->warren->investment);
   }
 
