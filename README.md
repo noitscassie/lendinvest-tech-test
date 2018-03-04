@@ -31,7 +31,7 @@ This application is designed to be run in the command line. You will need to hav
 To get started, clone this repository, and install project dependencies using Composer:
 
 ```
-$ php composer.phar install
+$ composer install
 ```
 
 You will then be able to open the interactive PHP shell to use the application:
