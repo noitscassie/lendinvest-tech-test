@@ -104,6 +104,12 @@ Given that I had never written any PHP before this project, the next step was to
 
 ## Challenges
 
+The main challenge in this test came from the fact that I was using technologies that I had not used before. This mostly came from the testing framework, PHPUnit; being familiar with objected-oriented design in languages such as Ruby and ES6 JavaScript, the patterns in PHP were familiar. PHPUnit, on the other hand, dealt with things like assertions or mock creation in a different way to frameworks that I have used before, such as RSpec, and so working out how to properly use matchers, or create mocks with the correct methods and return values, for example, took me longer than I would have liked. Moreover, the feedback on failing tests or tests with errors felt less comprehensive than it is in RSpec, which made resolving errors, at times, trickier.
+
+The logic element of the application itself proved to be relatively straightforward. The most complex part of this was calculating the interest accrued by an investor over a set period of time - in particular, by working out what the specified figures of £28.06 and £21.29 actually represented. Through trial and error, I established that these were pro-rata figures for interest accrued over the month, increasing in a linear rather than compounding manner. After ascertaining this, I was able to break down the information that performing this calculation would depend on, and then use a test-driven approach to return each of these bits of information, eventually creating a single method that would return the correct interest accrued for any given investment.
+
+I was also challenged by the design process of the application and, more specifically, what information would be stored (and retrieved), and where. The greatest of these was where the method to return the interest accrued by an investor in a given period of time should sit. In the end, I took the decision to leave this method with the `Investor` class; however, in a more sophisticated system that may wish to perform this operation across a greater number of loans, tranches, and investments, it may be better for this method to sit in an overarching `System` class. This abstraction, however, felt like a step too far for this test, and the `Investor` class felt like the next most natural home for it - given it is the investor that is accrusing interest.
+
 
 
 ## Limitations
